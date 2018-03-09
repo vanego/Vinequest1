@@ -112,7 +112,7 @@ $(document).ready(function() {
        console.log(comment);
        // Code for the push
 
-       database.ref().set({
+       database.ref('users').push({
 
            name: name,
 
@@ -152,7 +152,7 @@ $(document).ready(function() {
 
        console.log(snapshot.val().vineyardAddr);
 
-       console.log(snapshot.val().zipcode);
+       // console.log(snapshot.val().zipcode);
 
        console.log(snapshot.val().comment);
 
@@ -168,7 +168,7 @@ $(document).ready(function() {
 
        $("#vineyardAddr-display").text(snapshot.val().vineyardAddr);
 
-       $("#zipcode-display").text(snapshot.val().zipcode);
+       // $("#zipcode-display").text(snapshot.val().zipcode);
 
        $("#comment-display").text(snapshot.val().comment);
 
