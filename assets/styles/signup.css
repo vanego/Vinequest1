@@ -1,11 +1,30 @@
-#member-signup-box {
+#sign-in-box #sign-up-box {
     height: 500px;
-    width: 500px;
+    width: 40%;
     border: 2px solid black;
     padding: 20px;
     margin: 40px;
   }
   
+  #video {
+    height: 500px;
+    width: 40%;
+    float: right;
+    margin-right: 100px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 40px;
+  }
+
+  .side-by-side {
+    display: inline-block;
+
+  }
+
+  iframe {
+     margin: 0 auto;
+  }
+
   .floated-label-wrapper {
     position: relative;
   }
