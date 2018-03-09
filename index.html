@@ -21,7 +21,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
 
         <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-        <script src="./assets/scripts/app.js"></script>
+        <script src="./assets/scripts/index.js"></script>
+        <!-- <script src="./assets/scripts/app.js"></script> -->
         <script src="./assets/scripts/signin.js"></script>
     </head>
 
@@ -62,7 +63,7 @@
                     <label for="pass">Password</label>
                     <input type="password" id="password-input" name="password input" placeholder="Password">
                 </div>
-                <input class="button expanded" type="submit" value="Sign up">
+                <input class="button expanded" id="signup" type="submit" value="Sign up">
                 <p>Already a member? Sign in <a class="here">here.</a></p>
             </form>
         </div>
@@ -71,11 +72,11 @@
                     <h2>Sign In</h2>
                     <div class="floated-label-wrapper">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email input" placeholder="Email">
+                        <input type="email" id="email2" name="email input" placeholder="Email">
                     </div>
                     <div class="floated-label-wrapper">
                         <label for="pass">Password</label>
-                        <input type="password" id="password-input" name="password input" placeholder="Password">
+                        <input type="password" id="password2-input" name="password input" placeholder="Password">
                     </div>
                     <input class="button expanded" type="submit" value="Sign in" id="sign-in-button">
                     <p>Not a member? Sign up <a class="here">here.</a></p>

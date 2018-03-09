@@ -65,16 +65,14 @@ $(document).ready(function() {
 
     // For the Index Page
     // Capture user information and add to the 'users' database
-    $("#signin").on("click", function(event) {
+    $("#sign-in-button").on("click", function(event) {
         event.preventDefault();
 
         // Collecting inputs.  
-        name = $("#name-input").val();
-        email = $("#email-input").val();
-        password = $("#password-input").val();
-       
 
-        console.log(name);
+        email = $("#email2").val();
+        password = $("#password2-input").val();
+       
         console.log(email);
         console.log(password);
         
