@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About</title>
         
-        <link rel="stylesheet" href="./assets/styles/signup.css">
+        <link rel="stylesheet" href="./assets/styles/contact.css">
         <link rel="stylesheet" href="./assets/styles/headerFooter.css">
 
         <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
@@ -22,10 +22,19 @@
 
         <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
         <script src="./assets/scripts/app.js"></script>
+
+        <!-- email js code -->
+        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+            emailjs.init("user_Cc4JBBKcau4g0NFB2BHv3");
+   })();
+</script>
     </head>
 
     <body>
 
+        <!-- header -->
         <header class="subnav-hero-section">
             <h1 class="subnav-hero-headline">
             <a href="./index.html">Vintastic</a>
@@ -45,26 +54,38 @@
             </li>
             </ul>
         </header>
+    </div>
 
-<div>
-    <h1>Contact Us</h1>
-    <form action="" id="contact-form">
-        Name
-        <input type="text" class="input" placeholder="Name">
-        <br> Email
-        <input type="email" class="input" placeholder="Email ">
-        <br> Subject
-        <input type="text" placeholder="Subject" class="input">
-        <br> Message
-        <input type="text" name="Message" placeholder="Tell us your thoughts" class="input">
-        <br>
-        <input type="submit" value="Submit" id="submit-button">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    </form>
-</div>
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_Cc4JBBKcau4g0NFB2BHv3");
+   })();
+</script>
 
 
-<footer>
+     <div id="sign-in-box">
+            <form method="GET" action="mailto:vinequester@gmail.com" enctype="text/plain"class="callout text-center">
+                <h2>Contact Us</h2>
+                <h4>We'd love to hear from you!</h4>
+                <div class="floated-label-wrapper">
+                    <label for="full-name">Full name</label>
+                    <input type="text" id="full-name" name="full name input" placeholder="Full name">
+                </div>
+                <div class="floated-label-wrapper">
+                    <label for="pass">Message</label>
+                    <textarea id="message-input" name="body" placeholder="Type your message here"></textarea>
+                </div>
+                <input class="button expanded" type="submit" value="Send">
+            </form>
+        </div>
+
+
+
+<!-- footer -->
+    <footer>
         <div id="footlinks">
             <a href="./contact.html">Contact</a>
             <a href="./about.html">About</a>
