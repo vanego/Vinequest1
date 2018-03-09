@@ -112,7 +112,7 @@ $(document).ready(function() {
        console.log(comment);
        // Code for the push
 
-       database.ref().push({
+       database.ref().set({
 
            name: name,
 
