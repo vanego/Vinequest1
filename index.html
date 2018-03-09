@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About</title>
-        
-        <link rel="stylesheet" href="./assets/styles/signup.css">
-        <link rel="stylesheet" href="./assets/styles/headerFooter.css">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles/signup.css">
+    <link rel="stylesheet" href="./assets/styles/headerFooter.css">
 
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-        <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
 
-        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-        <script src="./assets/scripts/index.js"></script>
-        <!-- <script src="./assets/scripts/app.js"></script> -->
-        <script src="./assets/scripts/signin.js"></script>
-    </head>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="./assets/scripts/index.js"></script>
+    <script src="./assets/scripts/signin.js"></script>
+    <!-- <script src="./assets/scripts/app.js"></script> -->
 
-    <body>
+</head>
 
-        <header class="subnav-hero-section">
-            <h1 class="subnav-hero-headline">
+<body>
+
+    <header class="subnav-hero-section">
+        <h1 class="subnav-hero-headline">
             <a href="./index.html">Vintastic</a>
-            </h1>
-            <ul class="subnav-hero-subnav">
+        </h1>
+        <ul class="subnav-hero-subnav">
             <li>
                 <a href="./search.html">Vineyard Search</a>
             </li>
@@ -45,76 +44,55 @@
             <li>
                 <a href="./contact.html">Contact</a>
             </li>
-            </ul>
-        </header>
+        </ul>
+    </header>
 
-        <div id="sign-up-box" class="side-by-side">
-            <form class="callout text-center">
-                <h2>Become A Member</h2>
-                <div class="floated-label-wrapper">
-                    <label for="full-name">Full name</label>
-                    <input type="text" id="full-name" name="full name input" placeholder="Full name">
-                </div>
-                <div class="floated-label-wrapper">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email input" placeholder="Email">
-                </div>
-                <div class="floated-label-wrapper">
-                    <label for="pass">Password</label>
-                    <input type="password" id="password-input" name="password input" placeholder="Password">
-                </div>
-                <input class="button expanded" id="signup" type="submit" value="Sign up">
-                <p>Already a member? Sign in <a class="here">here.</a></p>
-            </form>
-        </div>
-        <div id="sign-in-box" class="side-by-side">
-                <form class="callout text-center">
-                    <h2>Sign In</h2>
-                    <div class="floated-label-wrapper">
-                        <label for="email">Email</label>
-                        <input type="email" id="email2" name="email input" placeholder="Email">
-                    </div>
-                    <div class="floated-label-wrapper">
-                        <label for="pass">Password</label>
-                        <input type="password" id="password2-input" name="password input" placeholder="Password">
-                    </div>
-                    <input class="button expanded" type="submit" value="Sign in" id="sign-in-button">
-                    <p>Not a member? Sign up <a class="here">here.</a></p>
-                </form>
+    <div id="sign-up-box">
+        <form class="callout text-center">
+            <h2>Sign Up</h2>
+            <div class="floated-label-wrapper">
+                <label for="email">Email</label>
+                <input type="email" id="email2" name="email input" placeholder="Email">
             </div>
-        <div id="video" class="side-by-side">
-                <iframe src="https://www.youtube.com/embed/k61Xrfx3M0Q?"
-                width="500" height="315" frameborder="0" allowfullscreen></iframe>
-
-        </div>
-
-        <footer>
-            <div id="footlinks">
-                <a href="./contact.html">Contact</a>
-                <a href="./about.html">About</a>
+            <div class="floated-label-wrapper">
+                <label for="pass">Password</label>
+                <input type="password" id="password2-input" name="password input" placeholder="Password">
             </div>
-            <div>
-                <form id="maillist">
-                Join our mailing list
-                <input type="text">
-                <input type="submit">
-                </form>
+            <input class="button expanded" type="submit" value="Sign in" id="sign-in-button">
+            <p>Already a member? Sign in
+                <a class="here" id="signinhere">here.</a>
+            </p>
+        </form>
+    </div>
+    <div id="sign-in-box" class="side-by-side">
+        <form class="callout text-center">
+            <h2>Sign In</h2>
+            <div class="floated-label-wrapper">
+                <label for="email">Email</label>
+                <input type="email" id="email2" name="email input" placeholder="Email">
             </div>
-        </footer>
-
-        <script>
-            $(document).ready(function(){
-    $(".here").click(function(){
-        $("#sign-up-box").hide();
-    });
-    $(".here").click(function(){
-        $("#sign-up-box").show();
-    });
-});
-        </script>
+            <div class="floated-label-wrapper">
+                <label for="pass">Password</label>
+                <input type="password" id="password2-input" name="password input" placeholder="Password">
+            </div>
+            <input class="button expanded" type="submit" value="Sign in" id="sign-in-button">
+            <p>Not a member? Sign up
+                <a class="here" id="signuphere">here.</a>
+            </p>
+        </form>
+    </div>
 
 
-    </body>
+    <div id="video" class="side-by-side">
+        <iframe src="https://www.youtube.com/embed/k61Xrfx3M0Q?" width="400" height="315" frameborder="0" align="middle" allowfullscreen></iframe>
+
+    </div>
+
+    <footer>
+        <p id="rumi">"Either give me more wine or leave me alone" -Rumi</p>
+    </footer>
+
+
+</body>
 
 </html>
-

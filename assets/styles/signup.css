@@ -1,9 +1,17 @@
-#sign-in-box #sign-up-box {
+#sign-in-box {
+  position: relative;
+  left: 100px;
+  top: 40px;
   height: 500px;
   width: 40%;
-  border: 2px solid black;
-  padding: 20px;
-  margin: 40px;
+}
+
+#sign-up-box {
+  position: absolute;
+  margin-left: 100px;
+  margin-top: 40px;
+  height: 500px;
+  width: 40%;
 }
 
 #video {
@@ -13,7 +21,9 @@
   margin-right: 100px;
   border: 2px solid black;
   padding: 20px;
-  margin: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .side-by-side {
@@ -24,9 +34,9 @@ iframe {
   margin: 0 auto;
 }
 
-.floated-label-wrapper {
+/* .floated-label-wrapper {
   position: relative;
-}
+} */
 
 .floated-label-wrapper label {
   background: #fefefe;
