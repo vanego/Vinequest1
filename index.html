@@ -22,6 +22,7 @@
 
         <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
         <script src="./assets/scripts/app.js"></script>
+        <script src="./assets/scripts/signin.js"></script>
     </head>
 
     <body>
@@ -46,7 +47,7 @@
             </ul>
         </header>
 
-        <div id="sign-in-box">
+        <div id="sign-up-box" class="side-by-side">
             <form class="callout text-center">
                 <h2>Become A Member</h2>
                 <div class="floated-label-wrapper">
@@ -62,8 +63,28 @@
                     <input type="password" id="password-input" name="password input" placeholder="Password">
                 </div>
                 <input class="button expanded" type="submit" value="Sign up">
-                <input class="button expanded" type="submit" value="Sign in">
+                <p>Already a member? Sign in <a class="here">here.</a></p>
             </form>
+        </div>
+        <div id="sign-in-box" class="side-by-side">
+                <form class="callout text-center">
+                    <h2>Sign In</h2>
+                    <div class="floated-label-wrapper">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email input" placeholder="Email">
+                    </div>
+                    <div class="floated-label-wrapper">
+                        <label for="pass">Password</label>
+                        <input type="password" id="password-input" name="password input" placeholder="Password">
+                    </div>
+                    <input class="button expanded" type="submit" value="Sign in" id="sign-in-button">
+                    <p>Not a member? Sign up <a class="here">here.</a></p>
+                </form>
+            </div>
+        <div id="video" class="side-by-side">
+                <iframe src="https://www.youtube.com/embed/k61Xrfx3M0Q?"
+                width="500" height="315" frameborder="0" allowfullscreen></iframe>
+
         </div>
 
         <footer>
@@ -79,6 +100,17 @@
                 </form>
             </div>
         </footer>
+
+        <script>
+            $(document).ready(function(){
+    $(".here").click(function(){
+        $("#sign-up-box").hide();
+    });
+    $(".here").click(function(){
+        $("#sign-up-box").show();
+    });
+});
+        </script>
 
 
     </body>
