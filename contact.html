@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About</title>
         
-        <link rel="stylesheet" href="./assets/styles/signup.css">
+        <link rel="stylesheet" href="./assets/styles/contact.css">
         <link rel="stylesheet" href="./assets/styles/headerFooter.css">
 
         <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
@@ -26,6 +26,7 @@
 
     <body>
 
+        <!-- header -->
         <header class="subnav-hero-section">
             <h1 class="subnav-hero-headline">
             <a href="./index.html">Vintastic</a>
@@ -45,26 +46,29 @@
             </li>
             </ul>
         </header>
+    </div>
+    <!-- contact form -->
+    <div id="contact-form">
+            <form class="callout text-center">
+                <h2>Contact us</h2>
+                <div class="floated-label-wrapper">
+                    <label for="full-name">Name</label>
+                    <input type="text" id="full-name" name="full name input" placeholder="Full name">
+                </div>
+                <div class="floated-label-wrapper">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email input" placeholder="Email">
+                </div>
+                <div class="floated-label-wrapper">
+                    <label for="pass">Message</label>
+                    <input type="password" id="message-input" name="message-input" placeholder="Message">
+                </div>
+                <input class="button expanded" type="submit" value="Submit">
+            </form>
+        </div>
 
-<div>
-    <h1>Contact Us</h1>
-    <form action="" id="contact-form">
-        Name
-        <input type="text" class="input" placeholder="Name">
-        <br> Email
-        <input type="email" class="input" placeholder="Email ">
-        <br> Subject
-        <input type="text" placeholder="Subject" class="input">
-        <br> Message
-        <input type="text" name="Message" placeholder="Tell us your thoughts" class="input">
-        <br>
-        <input type="submit" value="Submit" id="submit-button">
-
-    </form>
-</div>
-
-
-<footer>
+<!-- footer -->
+    <footer>
         <div id="footlinks">
             <a href="./contact.html">Contact</a>
             <a href="./about.html">About</a>
