@@ -2,184 +2,165 @@
 // import Foundation from 'foundation-sites';
 // import whatInput from 'what-input';
 $(document).ready(function() {
-   
 
-   window.$ = $;
 
-   
-   // If you want to pick and choose which modules to include, comment out the above and uncomment
-   // the line below
-   //import './lib/foundation-explicit-pieces';
+    // window.$ = $;
 
 
-//    $(document).foundation();
+    // If you want to pick and choose which modules to include, comment out the above and uncomment
+    // the line below
+    //import './lib/foundation-explicit-pieces';
 
-   // Initialize Firebase
-   var config = {
-       apiKey: "AIzaSyBWqjaCO-Olwa0-z-lihkDuK7nSLXI4BCw",
-       authDomain: "vineyardsearch.firebaseapp.com",
-       databaseURL: "https://vineyardsearch.firebaseio.com",
-       projectId: "vineyardsearch",
-       storageBucket: "",
-       messagingSenderId: "605883901058"
-   };
-   firebase.initializeApp(config);
 
+    //    $(document).foundation();
 
-   // Create a variable to reference the database.
-   var database = firebase.database();
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBWqjaCO-Olwa0-z-lihkDuK7nSLXI4BCw",
+        authDomain: "vineyardsearch.firebaseapp.com",
+        databaseURL: "https://vineyardsearch.firebaseio.com",
+        projectId: "vineyardsearch",
+        storageBucket: "",
+        messagingSenderId: "605883901058"
+    };
+    firebase.initializeApp(config);
 
-   // -------------------------------------------------------------- (CRITICAL - BLOCK) --------------------------- //
-   // connectionsRef references a specific location in our database.
-   // All of our connections will be stored in this directory.
-   var connectionsRef = database.ref("/connections");
 
-   // '.info/connected' is a special location provided by Firebase that is updated every time
-   // the client's connection state changes.
-   // '.info/connected' is a boolean value, true if the client is connected and false if they are not.
-   var connectedRef = database.ref(".info/connected");
+    // Create a variable to reference the database.
+    var database = firebase.database();
 
-   // When the client's connection state changes...
-   connectedRef.on("value", function(snap) {
+    // // -------------------------------------------------------------- (CRITICAL - BLOCK) --------------------------- //
+    // // connectionsRef references a specific location in our database.
+    // // All of our connections will be stored in this directory.
+    // var connectionsRef = database.ref("/connections");
 
-       // If they are connected..
-       if (snap.val()) {
+    // // '.info/connected' is a special location provided by Firebase that is updated every time
+    // // the client's connection state changes.
+    // // '.info/connected' is a boolean value, true if the client is connected and false if they are not.
+    // var connectedRef = database.ref(".info/connected");
 
-           // Add user to the connections list.
-           var con = connectionsRef.push(true);
+    // // When the client's connection state changes...
+    // connectedRef.on("value", function(snap) {
 
-           // Remove user from the connection list when they disconnect.
-           con.onDisconnect().remove();
-       }
-   });
+    //     // If they are connected..
+    //     if (snap.val()) {
 
-   // When first loaded or when the connections list changes...
-   connectionsRef.on("value", function(snap) {
+    //         // Add user to the connections list.
+    //         var con = connectionsRef.push(true);
 
-       // Display the viewer count in the html.
-       // The number of online users is the number of children in the connections list.
-       $("#viewers").text(snap.numChildren());
-   });
+    //         // Remove user from the connection list when they disconnect.
+    //         con.onDisconnect().remove();
+    //     }
+    // });
 
-   //-----------------------------CRITICAL BLOCK--------------------------------------//
+    // // When first loaded or when the connections list changes...
+    // connectionsRef.on("value", function(snap) {
 
-   // Initial Values
+    //     // Display the viewer count in the html.
+    //     // The number of online users is the number of children in the connections list.
+    //     $("#viewers").text(snap.numChildren());
+    // });
 
-   var name = "";
+    // //-----------------------------CRITICAL BLOCK--------------------------------------//
 
-   var email = "";
+    // Initial Values
 
-   var password = "";
+    var name = "";
 
-   var vineyard = "";
+    var email = "";
 
-   var vineyardAddr = "";
+    var password = "";
 
-   var zipcode = "";
+    var vineyard = "";
 
-   var comment = "";
+    var vineyardAddr = "";
 
-   // Capture Button Click
+    var zipcode = "";
 
-   $("#add-user").on("click", function(event) {
-       event.preventDefault();
+    var comment = "";
 
-       // YOUR TASK!!!!!
+    // For the Contact Page
+    // Capture user information and add to the 'users' database
+    $("#submit-button").on("click", function(event) {
+        event.preventDefault();
 
-       // Code in the logic for storing and retrieving the most recent user.
+        // Collecting inputs.  
+        name = $("#name-input").val();
+        email = $("#email-input").val();
+        password = $("#password-input").val();
+        vineyard = $("#vineyard-input").val();
+        vineyardAddr = $("#vineyardAddr-input").val();
+        // zipcode = $("#zipcode-input").val();
+        comment = $("#comment-input").val();
 
-       // Dont forget to provide initial data to your Firebase database.
+        console.log(name);
+        console.log(email);
+        console.log(password);
+        console.log(vineyard);
+        console.log(vineyardAddr);
+        console.log(comment);
+        
+        // taking the inputs and pushing into the 'users' database
+        database.ref('users').push({
+            name: name,
+            email: email,
+            password: password,
+            vineyard: vineyard,
+            vineyardAddr: vineyardAddr,
+            // zipcode: zipcode,
+            comment: comment,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+        });
+    });
 
-       name = $("#name-input").val();
+    
 
-       email = $("#email-input").val();
+    // Firebase watcher + initial loader HINT: .on("value")
 
-       password = $("#password-input").val();
+    // database.ref().on("child_added", function(snapshot) {
 
-       vineyard = $("#vineyard-input").val();
+    //     // Log everything that's coming out of snapshot
 
-       vineyardAddr = $("#vineyardAddr-input").val();
+    //     console.log(snapshot.val());
 
-       // zipcode = $("#zipcode-input").val();
+    //     console.log(snapshot.val().name);
 
-       comment = $("#comment-input").val();
+    //     console.log(snapshot.val().email);
 
-       console.log(name);
-       console.log(email);
-       console.log(password);
-       console.log(vineyard);
-       console.log(vineyardAddr);
-       console.log(comment);
-       // Code for the push
+    //     console.log(snapshot.val().password);
 
-       database.ref().push({
+    //     console.log(snapshot.val().vineyard);
 
-           name: name,
+    //     console.log(snapshot.val().vineyardAddr);
 
-           email: email,
+    //     // console.log(snapshot.val().zipcode);
 
-           password: password,
+    //     console.log(snapshot.val().comment);
 
-           vineyard: vineyard,
+    //     // Change the HTML to reflect
 
-           vineyardAddr: vineyardAddr,
+    //     $("#name-display").text(snapshot.val().name);
 
-           // zipcode: zipcode,
+    //     $("#email-display").text(snapshot.val().email);
 
-           comment: comment,
+    //     $("#password-display").text(snapshot.val().password);
 
-           dateAdded: firebase.database.ServerValue.TIMESTAMP
+    //     $("#vineyard-display").text(snapshot.val().vineyard);
 
-       });
+    //     $("#vineyardAddr-display").text(snapshot.val().vineyardAddr);
 
-   });
+    //     // $("#zipcode-display").text(snapshot.val().zipcode);
 
-   // Firebase watcher + initial loader HINT: .on("value")
+    //     $("#comment-display").text(snapshot.val().comment);
 
-   database.ref().on("child_added", function(snapshot) {
+    //     // Handle the errors
 
-       // Log everything that's coming out of snapshot
+    // }, function(errorObject) {
 
-       console.log(snapshot.val());
+    //     console.log("Errors handled: " + errorObject.code);
 
-       console.log(snapshot.val().name);
+    // });
 
-       console.log(snapshot.val().email);
-
-       console.log(snapshot.val().password);
-
-       console.log(snapshot.val().vineyard);
-
-       console.log(snapshot.val().vineyardAddr);
-
-       console.log(snapshot.val().zipcode);
-
-       console.log(snapshot.val().comment);
-
-       // Change the HTML to reflect
-
-       $("#name-display").text(snapshot.val().name);
-
-       $("#email-display").text(snapshot.val().email);
-
-       $("#password-display").text(snapshot.val().password);
-
-       $("#vineyard-display").text(snapshot.val().vineyard);
-
-       $("#vineyardAddr-display").text(snapshot.val().vineyardAddr);
-
-       $("#zipcode-display").text(snapshot.val().zipcode);
-
-       $("#comment-display").text(snapshot.val().comment);
-
-       // Handle the errors
-
-   }, function(errorObject) {
-
-       console.log("Errors handled: " + errorObject.code);
-
-   });
-
-   //------------------------------------------------------------------
+    //------------------------------------------------------------------
 
 })
