@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About</title>
-        
-        <link rel="stylesheet" href="./assets/styles/contact.css">
-        <link rel="stylesheet" href="./assets/styles/headerFooter.css">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles/contact.css">
+    <link rel="stylesheet" href="./assets/styles/headerFooter.css">
 
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-        <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
 
-        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-        <script src="./assets/scripts/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="./assets/scripts/app.js"></script>
 
-        <!-- email js code -->
-        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script type="text/javascript">
-            (function(){
+    <!-- email js code -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
             emailjs.init("user_Cc4JBBKcau4g0NFB2BHv3");
-   })();
-</script>
-    </head>
+        })();
+    </script>
+</head>
 
-    <body>
+<body>
 
-        <!-- header -->
-        <header class="subnav-hero-section">
-            <h1 class="subnav-hero-headline">
+    <!-- header -->
+    <header class="subnav-hero-section">
+        <h1 class="subnav-hero-headline">
             <a href="./index.html">Vintastic</a>
-            </h1>
-            <ul class="subnav-hero-subnav">
+        </h1>
+        <ul class="subnav-hero-subnav">
             <li>
                 <a href="./search.html">Vineyard Search</a>
             </li>
@@ -52,55 +50,45 @@
             <li>
                 <a href="./contact.html">Contact</a>
             </li>
-            </ul>
-        </header>
+        </ul>
+    </header>
     </div>
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("user_Cc4JBBKcau4g0NFB2BHv3");
-   })();
-</script>
-
-
-     <div id="sign-in-box">
-            <form method="GET" action="mailto:vinequester@gmail.com" enctype="text/plain"class="callout text-center">
-                <h2>Contact Us</h2>
-                <h4>We'd love to hear from you!</h4>
-                <div class="floated-label-wrapper">
-                    <label for="full-name">Full name</label>
-                    <input type="text" id="full-name" name="full name input" placeholder="Full name">
-                </div>
-                <div class="floated-label-wrapper">
-                    <label for="pass">Message</label>
-                    <textarea id="message-input" name="body" placeholder="Type your message here"></textarea>
-                </div>
-                <input class="button expanded" type="submit" value="Send">
-            </form>
-        </div>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_Cc4JBBKcau4g0NFB2BHv3");
+        })();
+    </script>
 
 
+    <div id="sign-in-box">
+        <form method="GET" action="mailto:vinequester@gmail.com" enctype="text/plain" class="callout text-center">
+            <h2>Contact Us</h2>
+            <h4>We'd love to hear from you!</h4>
+            <div class="floated-label-wrapper">
+                <label for="full-name">Full name</label>
+                <input type="text" id="full-name" name="full name input" placeholder="Full name">
+            </div>
+            <div class="floated-label-wrapper">
+                <label for="pass">Message</label>
+                <textarea id="message-input" name="body" placeholder="Type your message here"></textarea>
+            </div>
+            <input class="button expanded" type="submit" value="Send">
+        </form>
+    </div>
 
-<!-- footer -->
+
+
+    <!-- footer -->
     <footer>
-        <div id="footlinks">
-            <a href="./contact.html">Contact</a>
-            <a href="./about.html">About</a>
-        </div>
-        <div>
-            <form id="maillist">
-            Join our mailing list
-            <input type="text">
-            <input type="submit">
-            </form>
-        </div>
+        <p id="rumi">“Wine can of their wits the wise beguile, Make the sage frolic, and the serious smile.” ―Homer
+        </p>
     </footer>
 
 
 </body>
 
 </html>
-
