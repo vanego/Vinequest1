@@ -74,18 +74,45 @@ $(document).ready(function() {
         password = $("#password2-input").val();
        
         console.log(email);
-        console.log(password);
-        
-        
-        // taking the inputs and pushing into the 'users' database
-        database.ref('users').push({
-            name: name,
-            email: email,
-            password: password,
-            dateAdded: firebase.database.ServerValue.TIMESTAMP
-        });
+        console.log(password);        
     });
 
-   
+    // Add login event
+    $("#sign-in-button").on('click', e => {  
+    // Sign in
+    promise = auth.signInWithEmailAndPassword(email, password);
+    promise.catch(e => console.log(e.message));
+    });
+    // Add signup event
+    $("#signup").on('click', e=> {
+    // Get  FB authentication
+    auth = firebase.auth();  
+    // Sign In
+    promise = auth.createUserWithEmailAndPassword(email, password);
+    promise.catch(e => console.log(e.message));
+    });
 
-})
+    // Logout event
+    $("#logout").on('click', e => {
+    firebase.auth().signOut();
+    });  
+
+
+
+    // Add a realtime listener
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) {
+        console.log(firebaseUser);
+        $("#logout").classList.remove('hide');
+      } else {
+        console.log('not logged in');
+        $("#logout").classList.add('hide');
+      }
+     }); 
+  });
+
+
+
+
+
+
