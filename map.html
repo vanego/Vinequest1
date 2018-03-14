@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
+    <link rel="stylesheet" href="./assets/styles/signup.css">
+    <link rel="stylesheet" href="./assets/styles/headerFooter.css">
+    <link rel="stylesheet" href="./assets/styles/map.css">
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="./assets/scripts/app.js"></script>
+    <script src="./assets/scripts/map.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyswQe8LuGs4TY79PITYkp4v3K8YD7yfk"
+    async defer></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyCyswQe8LuGs4TY79PITYkp4v3K8YD7yfk"
+    async defer></script>
+ -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyswQe8LuGs4TY79PITYkp4v3K8YD7yfk&libraries=places"
+    async defer></script>
+
+</head>
+
+<body>
+    <!-- header -->
+    <header class="subnav-hero-section">
+        <h1 class="subnav-hero-headline">
+            <a href="./index.html">Vintastic</a>
+        </h1>
+        <ul class="subnav-hero-subnav">
+            <li>
+                <a href="./search.html">Vineyard Search</a>
+            </li>
+            <li>
+                <a href="./favorites.html">Favorites</a>
+            </li>
+            <li>
+                <a href="./about.html">About</a>
+            </li>
+            <li>
+                <a href="./contact.html">Contact</a>
+            </li>
+        </ul>
+    </header>
+    <!-- search bar -->
+    <div class="container">
+<div class="input-group">
+    <input type="text" class="form-control" class="place" placeholder="Search for a winery">
+      <span class="input-group-btn">
+        <button class="btn btn-search" type="button" id="maps"><i class="fa fa-search fa-fw"></i> Search</button>
+      </span>
+</div>
+</div>  
+<div id='map-canvas'></div>
+<div id='mapholder'>Google Map will Go Here!</div>
+
+</body>
+
+</html>

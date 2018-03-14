@@ -16,16 +16,28 @@
   height: 300px;
 }
 
-.subnav-hero-section .subnav-hero-headline a {
+#logout {
+  position: absolute;
+  top: 0;
+  right: 0;
   color: #fefefe;
-  font-family: "Nanum Myeongjo", serif;
-  font-size: 60px;
-  letter-spacing: 2px;
-  text-decoration: none;
+  font-family: "nanum myeongjo", serif;
+  font-size: 15px;
+  font-weight: bolder;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  padding: 20px;
 }
 
-.subnav-hero-section .subnav-hero-headline {
+#logout {
+  background: rgba(254, 254, 254, 0.15);
+}
+
+#logout {
+  background: rgba(254, 254, 254, 0.15);
+}
+
+.subnav-hero-section .subnav-hero-headline a {
   color: #fefefe;
   font-family: "Nanum Myeongjo", serif;
   font-size: 60px;
