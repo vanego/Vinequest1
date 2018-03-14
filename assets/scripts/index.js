@@ -19,12 +19,12 @@ $(document).ready(function() {
   //     storageBucket: "",
   //     messagingSenderId: "605883901058"
   var config = {
-    apiKey: "AIzaSyACBfFXGsdZ0wYL4QPWVMlK2a-28-xiMFo",
-    authDomain: "vinequest-b6428.firebaseapp.com",
-    databaseURL: "https://vinequest-b6428.firebaseio.com",
-    projectId: "vinequest-b6428",
-    storageBucket: "",
-    messagingSenderId: "1002954418167"
+    apiKey: "AIzaSyAtvF_Uag4Qbvxp1r2BNkvuKQ0jkTrdyeE",
+    authDomain: "vinequest-35c5f.firebaseapp.com",
+    databaseURL: "https://vinequest-35c5f.firebaseio.com",
+    projectId: "vinequest-35c5f",
+    storageBucket: "vinequest-35c5f.appspot.com",
+    messagingSenderId: "457258807730"
   };
   firebase.initializeApp(config);
 
@@ -86,8 +86,8 @@ $(document).ready(function() {
   // Add signup event
   $("#signup").on("click", e => {
     e.preventDefault();
-    var email = $("#email2").val();
-    var password = $("#password2-input").val();
+    var email = $("#signup-email").val();
+    var password = $("#signup-password").val();
     // Get  FB authentication
     auth = firebase.auth();
     // Sign In

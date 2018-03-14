@@ -1,166 +1,167 @@
-// import $ from 'jquery';
-// import Foundation from 'foundation-sites';
-// import whatInput from 'what-input';
-$(document).ready(function() {
+// // import $ from 'jquery';
+// // import Foundation from 'foundation-sites';
+// // import whatInput from 'what-input';
+// $(document).ready(function() {
+//   // window.$ = $;
 
+//   // If you want to pick and choose which modules to include, comment out the above and uncomment
+//   // the line below
+//   //import './lib/foundation-explicit-pieces';
 
-    // window.$ = $;
+//   //    $(document).foundation();
 
+//   // Initialize Firebase
+//   var config = {
+//     apiKey: "AIzaSyAtvF_Uag4Qbvxp1r2BNkvuKQ0jkTrdyeE",
+//     authDomain: "vinequest-35c5f.firebaseapp.com",
+//     databaseURL: "https://vinequest-35c5f.firebaseio.com",
+//     projectId: "vinequest-35c5f",
+//     storageBucket: "vinequest-35c5f.appspot.com",
+//     messagingSenderId: "457258807730"
+//   };
+//   firebase.initializeApp(config);
 
-    // If you want to pick and choose which modules to include, comment out the above and uncomment
-    // the line below
-    //import './lib/foundation-explicit-pieces';
+//   var database = firebase.database();
 
+//   // // -------------------------------------------------------------- (CRITICAL - BLOCK) --------------------------- //
+//   // // connectionsRef references a specific location in our database.
+//   // // All of our connections will be stored in this directory.
+//   // var connectionsRef = database.ref("/connections");
 
-    //    $(document).foundation();
+//   // // '.info/connected' is a special location provided by Firebase that is updated every time
+//   // // the client's connection state changes.
+//   // // '.info/connected' is a boolean value, true if the client is connected and false if they are not.
+//   // var connectedRef = database.ref(".info/connected");
 
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBWqjaCO-Olwa0-z-lihkDuK7nSLXI4BCw",
-        authDomain: "vineyardsearch.firebaseapp.com",
-        databaseURL: "https://vineyardsearch.firebaseio.com",
-        projectId: "vineyardsearch",
-        storageBucket: "",
-        messagingSenderId: "605883901058"
-    };
-    firebase.initializeApp(config);
+//   // // When the client's connection state changes...
+//   // connectedRef.on("value", function(snap) {
 
+//   //     // If they are connected..
+//   //     if (snap.val()) {
 
-    // Create a variable to reference the database.
-    var database = firebase.database();
+//   //         // Add user to the connections list.
+//   //         var con = connectionsRef.push(true);
 
-    // // -------------------------------------------------------------- (CRITICAL - BLOCK) --------------------------- //
-    // // connectionsRef references a specific location in our database.
-    // // All of our connections will be stored in this directory.
-    // var connectionsRef = database.ref("/connections");
+//   //         // Remove user from the connection list when they disconnect.
+//   //         con.onDisconnect().remove();
+//   //     }
+//   // });
 
-    // // '.info/connected' is a special location provided by Firebase that is updated every time
-    // // the client's connection state changes.
-    // // '.info/connected' is a boolean value, true if the client is connected and false if they are not.
-    // var connectedRef = database.ref(".info/connected");
+//   // // When first loaded or when the connections list changes...
+//   // connectionsRef.on("value", function(snap) {
 
-    // // When the client's connection state changes...
-    // connectedRef.on("value", function(snap) {
+//   //     // Display the viewer count in the html.
+//   //     // The number of online users is the number of children in the connections list.
+//   //     $("#viewers").text(snap.numChildren());
+//   // });
 
-    //     // If they are connected..
-    //     if (snap.val()) {
+//   // //-----------------------------CRITICAL BLOCK--------------------------------------//
 
-    //         // Add user to the connections list.
-    //         var con = connectionsRef.push(true);
+//   // Initial Values
 
-    //         // Remove user from the connection list when they disconnect.
-    //         con.onDisconnect().remove();
-    //     }
-    // });
+//   //   var name = "";
 
-    // // When first loaded or when the connections list changes...
-    // connectionsRef.on("value", function(snap) {
+//   var email = "";
 
-    //     // Display the viewer count in the html.
-    //     // The number of online users is the number of children in the connections list.
-    //     $("#viewers").text(snap.numChildren());
-    // });
+//   var password = "";
 
-    // //-----------------------------CRITICAL BLOCK--------------------------------------//
+//   //   var vineyard = "";
 
-    // Initial Values
+//   //   var vineyardAddr = "";
 
-    var name = "";
+//   //   var zipcode = "";
 
-    var email = "";
+//   //   var comment = "";
 
-    var password = "";
+//   // For the Contact Page
+//   // Capture user information and add to the 'users' database
+//   $("#signup").on("click", function(event) {
+//     console.log("here");
+//     event.preventDefault();
 
-    var vineyard = "";
+//     // Collecting inputs.
+//     // name = $("#name-input").val();
+//     email = $("#signup-email").val();
+//     password = $("#signup-password").val();
+//     // vineyard = $("#vineyard-input").val();
+//     // vineyardAddr = $("#vineyardAddr-input").val();
+//     // zipcode = $("#zipcode-input").val();
+//     // comment = $("#comment-input").val();
 
-    var vineyardAddr = "";
+//     // console.log(name);
+//     console.log(email);
+//     console.log(password);
+//     // console.log(vineyard);
+//     // console.log(vineyardAddr);
+//     // console.log(comment);
 
-    var zipcode = "";
+//     // taking the inputs and pushing into the 'users' database
+//     database.ref("users").push({
+//       //   name: name,
+//       email: email,
+//       password: password
+//       //   vineyard: vineyard,
+//       //   vineyardAddr: vineyardAddr,
+//       // zipcode: zipcode,
+//       //   comment: comment,
+//     });
+//   });
 
-    var comment = "";
+//   var like = [];
 
-    // For the Contact Page
-    // Capture user information and add to the 'users' database
-    $("#submit-button").on("click", function(event) {
-        event.preventDefault();
+//   //   $(".heart").on("click", function() {
+//   //     event.preventDefault();
+//   //     console.log("you liked an image!");
+//   //   });
+//   // database.ref().push({
+//   //   like: results[searchResults].id
+//   // });
+// });
 
-        // Collecting inputs.  
-        name = $("#name-input").val();
-        email = $("#email-input").val();
-        password = $("#password-input").val();
-        vineyard = $("#vineyard-input").val();
-        vineyardAddr = $("#vineyardAddr-input").val();
-        // zipcode = $("#zipcode-input").val();
-        comment = $("#comment-input").val();
+// // Firebase watcher + initial loader HINT: .on("value")
 
-        console.log(name);
-        console.log(email);
-        console.log(password);
-        console.log(vineyard);
-        console.log(vineyardAddr);
-        console.log(comment);
-        
-        // taking the inputs and pushing into the 'users' database
-        database.ref('users').push({
-            name: name,
-            email: email,
-            password: password,
-            vineyard: vineyard,
-            vineyardAddr: vineyardAddr,
-            // zipcode: zipcode,
-            comment: comment,
-            dateAdded: firebase.database.ServerValue.TIMESTAMP
-        });
-    });
+// // database.ref().on("child_added", function(snapshot) {
 
-    
+// //     // Log everything that's coming out of snapshot
 
-    // Firebase watcher + initial loader HINT: .on("value")
+// //     console.log(snapshot.val());
 
-    // database.ref().on("child_added", function(snapshot) {
+// //     console.log(snapshot.val().name);
 
-    //     // Log everything that's coming out of snapshot
+// //     console.log(snapshot.val().email);
 
-    //     console.log(snapshot.val());
+// //     console.log(snapshot.val().password);
 
-    //     console.log(snapshot.val().name);
+// //     console.log(snapshot.val().vineyard);
 
-    //     console.log(snapshot.val().email);
+// //     console.log(snapshot.val().vineyardAddr);
 
-    //     console.log(snapshot.val().password);
+// //     // console.log(snapshot.val().zipcode);
 
-    //     console.log(snapshot.val().vineyard);
+// //     console.log(snapshot.val().comment);
 
-    //     console.log(snapshot.val().vineyardAddr);
+// //     // Change the HTML to reflect
 
-    //     // console.log(snapshot.val().zipcode);
+// //     $("#name-display").text(snapshot.val().name);
 
-    //     console.log(snapshot.val().comment);
+// //     $("#email-display").text(snapshot.val().email);
 
-    //     // Change the HTML to reflect
+// //     $("#password-display").text(snapshot.val().password);
 
-    //     $("#name-display").text(snapshot.val().name);
+// //     $("#vineyard-display").text(snapshot.val().vineyard);
 
-    //     $("#email-display").text(snapshot.val().email);
+// //     $("#vineyardAddr-display").text(snapshot.val().vineyardAddr);
 
-    //     $("#password-display").text(snapshot.val().password);
+// //     // $("#zipcode-display").text(snapshot.val().zipcode);
 
-    //     $("#vineyard-display").text(snapshot.val().vineyard);
+// //     $("#comment-display").text(snapshot.val().comment);
 
-    //     $("#vineyardAddr-display").text(snapshot.val().vineyardAddr);
+// //     // Handle the errors
 
-    //     // $("#zipcode-display").text(snapshot.val().zipcode);
+// // }, function(errorObject) {
 
-    //     $("#comment-display").text(snapshot.val().comment);
+// //     console.log("Errors handled: " + errorObject.code);
 
-    //     // Handle the errors
+// // });
 
-    // }, function(errorObject) {
-
-    //     console.log("Errors handled: " + errorObject.code);
-
-    // });
-
-    //------------------------------------------------------------------
-
-})
+// //------------------------------------------------------------------
