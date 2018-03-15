@@ -13,11 +13,10 @@ $(document).ready(function() {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(function(user) {
-        window.location = "./search.html";
-      })
       .catch(function(error) {
-        console.log(error.message);
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
       });
   });
 
@@ -33,26 +32,18 @@ $(document).ready(function() {
     promise.catch(e => console.log(e.message));
   });
 
-  // Logout event
-  $("#logout").on("click", e => {
-    e.preventDefault();
-    firebase.auth().signOut();
-  });
-
   // Add a realtime listener
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-      console.log(firebaseUser);
-      $("#logout").classList.remove("hide");
-
-      // We get back a fireabseUser.uid, Save it in our databse
-
-      database.ref("users/" + firebaseUser.uid).set({
-        favorites: ["mor", "gan"]
-      });
-    } else {
-      console.log("not logged in");
-      $("#logout").classList.add("hide");
+      database
+        .ref("/" + firebaseUser.uid + "/liked_images")
+        .on("value", function(snap) {
+          if (snap.val() !== null) {
+            window.location = "./favorites.html";
+          } else {
+            window.location = "./search.html";
+          }
+        });
     }
   });
 });

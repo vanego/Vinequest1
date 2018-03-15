@@ -3,33 +3,47 @@ $(document).ready(function() {
   //     //window.location redirects user to given page
   //     window.location = "./index.html";
   //   }
-
-  var database = firebase.database();
-
-  //   var userId = firebase.auth().currentUser.uid;
-  var userId = "npI4LQF9gocmQvc2SpU1l37Kb123";
   var likedImages = [];
-  database.ref("/" + userId + "/liked_images").on("value", function(snap) {
-    if (snap.val() !== null) {
-      likedImages = snap.val();
-      console.log(likedImages);
+  var currentUser;
+  var database = firebase.database();
+  firebase.auth().onAuthStateChanged(function(firebaseUser) {
+    if (firebaseUser) {
+      currentUser = firebaseUser;
 
-      for (var favorites = 0; favorites < likedImages.length; favorites++) {
-        var image = likedImages[favorites];
-        console.log(image);
+      var userId = currentUser.uid;
 
-        var container = $(
-          `<div data-image=${image} style="background: url(${image}); height: 265px; width: 400px; display:inline-block;"></div>`
-        );
-        // var imgId = ;
-
-        container.addClass("imageresults");
-
-        $("#dump-favs-here").prepend(container);
-      }
+      database.ref("/" + userId + "/liked_images").on("value", function(snap) {
+        if (snap.val() !== null) {
+          likedImages = snap.val();
+          showLikedImages();
+        } else {
+          var placeholder = $(`<div><p>You haven't liked any images</p></div>`);
+          $("#dump-favs-here").append(placeholder);
+        }
+      });
     } else {
-      var placeholder = $(`<div><p>You haven't liked any images</p></div>`);
-      $("#dump-favs-here").append(placeholder);
+      window.location = "./index.html";
     }
+  });
+
+  function showLikedImages() {
+    for (var favorites = 0; favorites < likedImages.length; favorites++) {
+      var image = likedImages[favorites];
+      console.log(image);
+
+      var container = $(
+        `<div data-image=${image} style="background: url(${image}); height: 265px; width: 400px; display:inline-block;"></div>`
+      );
+      // var imgId = ;
+
+      container.addClass("imageresults");
+
+      $("#dump-favs-here").prepend(container);
+    }
+  }
+  // Logout event
+  $("#logout").on("click", e => {
+    e.preventDefault();
+    firebase.auth().signOut();
   });
 });
