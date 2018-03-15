@@ -14,17 +14,6 @@ $(document).ready(function() {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function(user) {
-        firebase
-          .auth()
-          .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-          .then(function() {
-            return firebase.auth().signInWithEmailAndPassword(email, password);
-          })
-          .catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-          });
         window.location = "./search.html";
       })
       .catch(function(error) {
