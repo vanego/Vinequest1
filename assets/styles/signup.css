@@ -66,3 +66,42 @@ iframe {
   z-index: 1;
   transition: all 0.15s ease-in;
 }
+
+@media only screen and (max-width: 980px) {
+  .side-by-side {
+    display: block;
+    
+  }
+  #sign-in-box {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    width: 40%;
+  }
+  
+  #sign-up-box {
+    position: absolute;
+    /* margin-left: auto;
+    margin-right: auto; */
+    height: 300px;
+    width: 40%;
+  }
+  #video {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .side-by-side {
+    display: block;
+    
+}
+
+@media only screen and (max-width: 640px) {
+  .side-by-side {
+    display: block;
+    
+  }
+}

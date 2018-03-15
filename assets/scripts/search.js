@@ -1,21 +1,28 @@
 // when html is ready ie done loading run function
-var userInput;
-
 $(document).ready(function() {
-  var config = {
-    apiKey: "AIzaSyAtvF_Uag4Qbvxp1r2BNkvuKQ0jkTrdyeE",
-    authDomain: "vinequest-35c5f.firebaseapp.com",
-    databaseURL: "https://vinequest-35c5f.firebaseio.com",
-    projectId: "vinequest-35c5f",
-    storageBucket: "vinequest-35c5f.appspot.com",
-    messagingSenderId: "457258807730"
-  };
-  firebase.initializeApp(config);
+  // Check if this user is signed in
+  // If not kick out back to index
 
+  // if (firebase.auth().currentUser === null) {
+  //   //window.location redirects user to given page
+  //   window.location = "./index.html";
+  // }
+  //if user gets to this point we know they're logged in
   // Create a variable to reference the database.
+  // var config = {
+  //   apiKey: "AIzaSyAtvF_Uag4Qbvxp1r2BNkvuKQ0jkTrdyeE",
+  //   authDomain: "vinequest-35c5f.firebaseapp.com",
+  //   databaseURL: "https://vinequest-35c5f.firebaseio.com",
+  //   projectId: "vinequest-35c5f",
+  //   storageBucket: "vinequest-35c5f.appspot.com",
+  //   messagingSenderId: "457258807730"
+  // };
+
+  // firebase.initializeApp(config);
+
   var database = firebase.database();
 
-  var userId = "npI4LQF9gocmQvc2SpU1l37Kb123";
+  var userId = firebase.auth().currentUser.uid;
   var likedImages = [];
   database.ref("/" + userId + "/liked_images").on("value", function(snap) {
     if (snap.val() !== null) {
@@ -33,11 +40,19 @@ $(document).ready(function() {
       $(".search-field").addClass("expand-search");
     }
 
-    userInput = $(".input-field").val();
+    var userInput = $(".input-field").val();
     if (userInput.length > 0) {
       $(".input-field").val("");
     }
-    searchImages();
+
+    searchImages(userInput);
+  });
+
+  $("#search").on("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      $(".search").trigger("click");
+    }
   });
 
   $("body").on("click", ".heart", function() {
@@ -63,16 +78,11 @@ $(document).ready(function() {
     }
   });
 
-  function searchImages() {
-    var userSearch = userInput;
-
+  function searchImages(userSearch) {
     // API key
     var queryURL =
       "https://api.unsplash.com/search/photos?client_id=81749fea1cd0e85289f700fd98bd3488b5b786cfb861291a86beaf4230d2866c&page=1&per_page=15&orientation=landscape&query=" +
       userSearch;
-
-    // use user input to search unsplash api
-    // console.log(userInput);
 
     // performing the ajax request
     $.ajax({
@@ -107,5 +117,3 @@ $(document).ready(function() {
       });
   }
 });
-
-//this.parent.

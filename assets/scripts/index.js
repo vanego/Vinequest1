@@ -1,86 +1,35 @@
-// import $ from 'jquery';
-// import Foundation from 'foundation-sites';
-// import whatInput from 'what-input';
 $(document).ready(function() {
-  // window.$ = $;
-
-  // If you want to pick and choose which modules to include, comment out the above and uncomment
-  // the line below
-  //import './lib/foundation-explicit-pieces';
-
-  //    $(document).foundation();
-
-  // Initialize Firebase
-  // var config = {
-  //     apiKey: "AIzaSyBWqjaCO-Olwa0-z-lihkDuK7nSLXI4BCw",
-  //     authDomain: "vineyardsearch.firebaseapp.com",
-  //     databaseURL: "https://vineyardsearch.firebaseio.com",
-  //     projectId: "vineyardsearch",
-  //     storageBucket: "",
-  //     messagingSenderId: "605883901058"
-  var config = {
-    apiKey: "AIzaSyAtvF_Uag4Qbvxp1r2BNkvuKQ0jkTrdyeE",
-    authDomain: "vinequest-35c5f.firebaseapp.com",
-    databaseURL: "https://vinequest-35c5f.firebaseio.com",
-    projectId: "vinequest-35c5f",
-    storageBucket: "vinequest-35c5f.appspot.com",
-    messagingSenderId: "457258807730"
-  };
-  firebase.initializeApp(config);
-
   // Create a variable to reference the database.
   var database = firebase.database();
 
-  // Initial Values
-
-  //   var name = "";
-
-  //   var email = "";
-
-  //   var password = "";
-
-  // For the Index Page
-  // Capture user information and add to the 'users' database
-  //   $("#signup").on("click", function(event) {
-  //     event.preventDefault();
-
-  //     // Collecting inputs.
-  //     email = $("#email").val();
-  //     password = $("#password-input").val();
-
-  //     console.log(email);
-  //     console.log(password);
-
-  //     // taking the inputs and pushing into the 'users' database
-  //     database.ref("users").push({
-  //       email: email,
-  //       password: password,
-  //       dateAdded: firebase.database.ServerValue.TIMESTAMP
-  //     });
-  //   });
-
-  // For the Index Page
-  // Capture user information and add to the 'users' database
-  //   $("#sign-in-button").on("click", function(event) {
-  //     event.preventDefault();
-
-  //     // Collecting inputs.
-
-  //     email = $("#email2").val();
-  //     password = $("#password2-input").val();
-
-  //     console.log(email);
-  //     console.log(password);
-  //   });
-
   // Add login event
-  $("#sign-in-button").on("click", e => {
-    e.preventDefault();
+  $("#sign-in-button").on("click", function(event) {
+    event.preventDefault();
+
     // Sign in
     var email = $("#email").val();
     var password = $("#password-input").val();
-    promise = firebase.auth().signInWithEmailAndPassword(email, password);
-    promise.catch(e => console.log(e.message));
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(function(user) {
+        firebase
+          .auth()
+          .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+          .then(function() {
+            return firebase.auth().signInWithEmailAndPassword(email, password);
+          })
+          .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+          });
+        window.location = "./search.html";
+      })
+      .catch(function(error) {
+        console.log(error.message);
+      });
   });
 
   // Add signup event
