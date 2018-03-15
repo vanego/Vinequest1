@@ -6,7 +6,8 @@ $(document).ready(function() {
 
   var database = firebase.database();
 
-  var userId = firebase.auth().currentUser.uid;
+  //   var userId = firebase.auth().currentUser.uid;
+  var userId = "npI4LQF9gocmQvc2SpU1l37Kb123";
   var likedImages = [];
   database.ref("/" + userId + "/liked_images").on("value", function(snap) {
     if (snap.val() !== null) {
