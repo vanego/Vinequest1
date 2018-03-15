@@ -14,8 +14,12 @@
   width: 40%;
 }
 
+.button {
+  background-color: rgb(125, 136, 210) !important;
+}
+
 #video {
-  height: 300px;
+  height: 290px;
   width: 40%;
   float: right;
   margin-right: 100px;

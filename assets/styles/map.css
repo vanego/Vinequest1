@@ -1,32 +1,43 @@
-html {
+/* html {
   margin: 40px auto;
+} */
+#maps {
+  border-radius: 50%;
+  margin-left: 3px;
 }
+
 .btn-search {
-    background: #424242;
-    border-radius: 0;
-    color: #fff;
-    border-width: 12px;
-    border-style: solid;
-    border-color: #1c1c1c;
-  }
-  .btn-search:link, .btn-search:visited {
-    color: #fff;
-  }
-  .btn-search:active, .btn-search:hover {
-    background: #1c1c1c;
-    color: #fff;
-  }
-  .form-control{
-    width:300px;
-    float:left;
-    margin-left:530px;
+  background: rgb(125, 136, 210);
+  border-radius: 50%;
+  color: #fff;
+  border-width: 12px;
+  border-style: solid;
+  border-color: rgb(125, 136, 210);
+  margin-top: 25px;
+}
+.btn-search:link,
+.btn-search:visited {
+  color: #fff;
+  border-radius: 50%;
+}
+.btn-search:active,
+.btn-search:hover {
+  background: rgb(125, 136, 210);
+  color: #fff;
+  border-radius: 50%;
+}
+.form-control {
+  width: 300px;
+  float: left;
+  margin-left: 530px;
+  margin-top: 25px;
+}
 
-  }
-
-   #map-canvas, #mapholder {
-    float:left;
-    margin-left:530px;
-    height: 400px;
-    width: 380px;
-
-  }
+#map-canvas,
+#mapholder {
+  float: left;
+  margin-left: 530px;
+  margin-bottom: 20px;
+  height: 400px;
+  width: 380px;
+}

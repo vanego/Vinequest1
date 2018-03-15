@@ -1,3 +1,18 @@
+#favsheadline {
+  font-family: "Nanum Myeongjo", serif;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 #dump-favs-here {
   min-height: 300px;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imageresults {
+  text-align: center;
+  margin: 10px;
 }

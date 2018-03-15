@@ -11,3 +11,8 @@
 #message-input {
   height: 100px;
 }
+
+.button {
+  background-color: rgb(125, 136, 210) !important;
+  color: white;
+}

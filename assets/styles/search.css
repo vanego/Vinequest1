@@ -7,6 +7,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+#search {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .search-field {
   width: 0;
   height: 40px;
@@ -31,7 +36,18 @@ svg {
 
 .button {
   border-radius: 50px;
+  background-color: rgb(125, 136, 210) !important;
+  /* transition-duration: 0.4s; */
 }
+/* 
+.button:hover {
+  background-color: rgb(112, 154, 57);
+}
+
+.button:active {
+  background-color: rgb(112, 154, 57);
+  transform: translateY(4px);
+} */
 
 .imageresults {
   text-align: center;
