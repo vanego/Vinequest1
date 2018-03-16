@@ -11,6 +11,7 @@ $(document).ready(function() {
     var service;
     var infowindow;
     var marker;
+    var x;
 
     // API keys
 
@@ -77,7 +78,7 @@ function callback(results, status) {
 
 
 
-        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+         map = new google.maps.Map(document.getElementById('map-canvas'), {
             center: {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
